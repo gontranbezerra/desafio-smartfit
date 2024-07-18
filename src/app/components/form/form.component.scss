@@ -1,0 +1,120 @@
+:host {
+  display: block;
+}
+
+.form-group {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+  max-width: 90%;
+  margin: 0 auto;
+
+  padding: 1.5em;
+
+  border: 0.2em solid var(--lighter-grey);
+  border-radius: 0.5em;
+
+  .form-header {
+    display: flex;
+    font-size: 1em;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-grey-text);
+    gap: 0.5em;
+    margin-bottom: 1.5em;
+
+    img {
+      height: 2em;
+    }
+  }
+
+  .form-content {
+    width: 100%;
+
+    .form-title {
+      font-size: 1.5em;
+      font-weight: 200;
+      padding: 0.25em 0.25em;
+      color: var(--light-grey-text);
+      border-bottom: 1px solid var(--lighter-grey);
+    }
+
+    .form-line {
+      position: relative;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0.5em 0.25em;
+      border-bottom: 1px solid var(--lighter-grey);
+      font-size: 1em;
+      color: var(--light-grey-text);
+      gap: 0.5em;
+
+      span {
+        position: absolute;
+        right: 0;
+      }
+    }
+
+    .form-summary {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 0.5em 0.25em;
+        margin: 2em 0;
+
+      .checkbox-wrapper {
+        display: flex;
+        gap: 0.5em;
+        color: var(--dark-grey);
+      }
+
+      .results {
+        display: flex;
+        gap: 0.5em;
+        color: var(--dark-grey);
+
+        span:last-child {
+            font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .form-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1em;
+
+    .btn {
+      width: 40vh;
+      padding: 1em 1em;
+      border: none;
+      color: var(--dark-grey);
+      text-transform: uppercase;
+      font-size: 1em;
+      font-weight: 700;
+      border-radius: 0.25em;
+      cursor: pointer;
+
+      &.btn-primary {
+        background-color: var(--yellow);
+      }
+
+      &.btn-secondary {
+        background-color: transparent;
+        border: 2px solid var(--lighter-grey);
+      }
+    }
+  }
+}
