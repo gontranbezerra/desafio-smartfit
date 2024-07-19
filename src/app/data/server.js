@@ -25,7 +25,12 @@ server.use((req, res, next) => {
 });
 
 server.get("/locations", (req, res) => {
-  res.jsonp(data.locations);
+  const { opened } = req.query;
+  if (opened) {
+    res.jsonp(data.locations.filter((loc) => loc.opened === true));
+  } else {
+    res.jsonp(data.locations);
+  }
 });
 
 server.listen(3000, () => {
