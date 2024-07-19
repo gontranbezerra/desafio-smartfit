@@ -1,62 +1,41 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  OnInit,
-  signal,
-} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { UnitLocation } from '@models/unit';
 
-import { UnitService } from '@services/unit.service';
+import { UnitState } from '@states/unit.state';
 
-import { take } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss',
 })
-export class FormComponent implements OnInit {
-  results = signal<number[]>([]);
-
+export class FormComponent {
   private nnfb = new FormBuilder().nonNullable;
-  private unitsService = inject(UnitService);
+  private unitState = inject(UnitState);
 
   protected formGroup = this.nnfb.group({
     hour: ['', Validators.required],
     showClosed: [false, Validators.required],
   });
+  
+  protected units$: Observable<UnitLocation[]> = this.unitState.units$;
 
-  ngOnInit(): void {
-    this.getAllUnits();
-  }
+  units = toSignal(this.units$, { initialValue: [] });
 
   onSubmit = () => {
-    this.printForm();
+    this.unitState.loadAllUnits(this.formGroup.value.showClosed);
   };
 
   onClean = () => {
     this.formGroup.reset();
+    this.unitState.clean();
   };
-
-  protected printForm() {
-    console.log(this.formGroup.value);
-  }
-
-  private getAllUnits() {
-    this.unitsService
-      .listAll()
-      .pipe(take(1))
-      .subscribe({
-        next: (units: UnitLocation[]) => {
-          console.log(units);
-        },
-        error: (error) => console.error(error),
-      });
-  }
 }

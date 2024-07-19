@@ -16,7 +16,7 @@ export class UnitService {
 
   constructor(private http: HttpClient) {}
 
-  listAll(allUnits: boolean = true): Observable<UnitLocation[]> {
+  listAllUnitsLocal(allUnits: boolean = true): Observable<UnitLocation[]> {
     if (allUnits) {
       return this.http.get<UnitLocation[]>(`${this.localAPI}/locations`);
     }
@@ -25,7 +25,7 @@ export class UnitService {
     );
   }
 
-  listAllUnits(allUnits: boolean = true): Observable<UnitLocation[]> {
+  listAllUnitsExternal(allUnits: boolean = true): Observable<UnitLocation[]> {
     if (allUnits) {
       return this.http
         .get<UnitResponse>(`${this.externalAPI}/locations.json`)

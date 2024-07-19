@@ -6,12 +6,7 @@
   <div class="form-content">
     <div class="form-title">Qual período quer treinar?</div>
     <div class="form-line">
-      <input
-        type="radio"
-        name="hour"
-        formControlName="hour"
-        value="morning"
-      />
+      <input type="radio" name="hour" formControlName="hour" value="morning" />
       <label for="hour">Manhã</label>
       <span>06:00 às 12:00</span>
     </div>
@@ -26,12 +21,7 @@
       <span>12:01 às 18:00</span>
     </div>
     <div class="form-line">
-      <input
-        type="radio"
-        name="hour"
-        formControlName="hour"
-        value="night"
-      />
+      <input type="radio" name="hour" formControlName="hour" value="night" />
       <label for="hour">Noite</label>
       <span>18:01 às 23:00</span>
     </div>
@@ -47,7 +37,7 @@
       </div>
       <div class="results">
         <span>Resultados encontrados:</span>
-        <span>{{ results().length }}</span>
+        <span>{{ units().length }}</span>
       </div>
     </div>
   </div>
