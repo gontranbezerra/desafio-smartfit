@@ -3,19 +3,40 @@ import { Injectable } from '@angular/core';
 
 import { environment } from '@environments/environment.development';
 
-import { UnitResponse } from '@models/unit';
+import { UnitLocation, UnitResponse } from '@models/unit';
 
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UnitService {
-  private unitsApi = environment.unitsApi;
+  private localAPI = environment.localAPI;
+  private externalAPI = environment.externalAPI;
 
   constructor(private http: HttpClient) {}
 
-  getAllUnits(): Observable<UnitResponse> {
-    return this.http.get<UnitResponse>(this.unitsApi);
+  listAll(allUnits: boolean = true): Observable<UnitLocation[]> {
+    if (allUnits) {
+      return this.http.get<UnitLocation[]>(`${this.localAPI}/locations`);
+    }
+    return this.http.get<UnitLocation[]>(
+      `${this.localAPI}/locations?opened=true`
+    );
+  }
+
+  listAllUnits(allUnits: boolean = true): Observable<UnitLocation[]> {
+    if (allUnits) {
+      return this.http
+        .get<UnitResponse>(`${this.externalAPI}/locations.json`)
+        .pipe(map((data: UnitResponse) => data.locations));
+    }
+    return this.http
+      .get<UnitResponse>(`${this.externalAPI}/locations.json`)
+      .pipe(
+        map((data: UnitResponse) =>
+          data.locations.filter((location) => location.opened === true)
+        )
+      );
   }
 }

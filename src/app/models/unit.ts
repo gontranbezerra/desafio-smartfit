@@ -1,12 +1,12 @@
 export interface UnitResponse {
   current_country_id: number;
-  locations: Location[];
+  locations: UnitLocation[];
   wp_total: number;
   total: number;
   success: boolean;
 }
 
-export interface Location {
+export interface UnitLocation {
   id: number;
   title: string;
   content?: string;

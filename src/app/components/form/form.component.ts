@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
-import { UnitResponse } from '@models/unit';
+import { UnitLocation } from '@models/unit';
 
 import { UnitService } from '@services/unit.service';
 
@@ -50,10 +50,10 @@ export class FormComponent implements OnInit {
 
   private getAllUnits() {
     this.unitsService
-      .getAllUnits()
+      .listAll()
       .pipe(take(1))
       .subscribe({
-        next: (units: UnitResponse) => {
+        next: (units: UnitLocation[]) => {
           console.log(units);
         },
         error: (error) => console.error(error),

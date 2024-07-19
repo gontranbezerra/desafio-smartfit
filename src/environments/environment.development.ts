@@ -1,4 +1,4 @@
 export const environment = {
-  unitsApi:
-    'https://test-frontend-developer.s3.amazonaws.com/data/locations.json',
+  externalAPI: 'https://test-frontend-developer.s3.amazonaws.com/data',
+  localAPI: 'http://localhost:3000',
 };
