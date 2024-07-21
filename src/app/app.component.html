@@ -1,2 +1,7 @@
 <app-header></app-header>
 <app-form></app-form>
+
+@let units = units$ | async; @if (units && units.length) {
+<app-units-list [units]="units"></app-units-list>
+
+}
