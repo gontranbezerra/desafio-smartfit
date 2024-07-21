@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
-import { UnitLocation } from '@models/unit';
+import { HOUR_INDEX, UnitLocation } from '@models/unit';
 
 import { UnitState } from '@states/unit.state';
 
@@ -22,7 +22,7 @@ export class FormComponent {
   private unitState = inject(UnitState);
 
   protected formGroup = this.nnfb.group({
-    hour: ['', Validators.required],
+    hour: [<HOUR_INDEX>'morning', Validators.required],
     showClosed: [false, Validators.required],
   });
   
@@ -31,7 +31,7 @@ export class FormComponent {
   units = toSignal(this.units$, { initialValue: [] });
 
   onSubmit = () => {
-    this.unitState.loadAllUnits(this.formGroup.value.showClosed);
+    this.unitState.load(this.formGroup.value);
   };
 
   onClean = () => {

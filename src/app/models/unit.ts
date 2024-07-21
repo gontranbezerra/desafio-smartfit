@@ -45,9 +45,26 @@ export interface Schedule {
 }
 
 export enum Weekdays {
-  DOM = 'Dom.',
+  Dom = 'Dom.',
   Obs = 'Obs.:',
   SegÀSex = 'Seg. à Sex.',
   SegÀsSex = 'Seg. às Sex.',
   Sáb = 'Sáb.',
 }
+
+export const OPENING_HOURS = {
+  morning: {
+    first: '06',
+    last: '12',
+  },
+  afternoon: {
+    first: '12',
+    last: '18',
+  },
+  night: {
+    first: '18',
+    last: '23',
+  },
+};
+
+export type HOUR_INDEX = 'morning' | 'afternoon' | 'night';
