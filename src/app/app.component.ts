@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 
+import { FooterComponent } from '@components/footer/footer.component';
 import { FormComponent } from '@components/form/form.component';
 import { HeaderComponent } from '@components/header/header.component';
 import { LegendComponent } from '@components/legend/legend.component';
@@ -17,7 +18,16 @@ import { Observable } from 'rxjs';
   selector: 'app-root',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, RouterModule, RouterOutlet, HeaderComponent, FormComponent, LegendComponent, UnitsListComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    RouterOutlet,
+    HeaderComponent,
+    FormComponent,
+    LegendComponent,
+    UnitsListComponent,
+    FooterComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
