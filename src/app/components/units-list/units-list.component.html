@@ -1,5 +1,9 @@
-<p>units-list works!</p>
-
-<div>
-  {{ units() | json }}
+<div class="card-list">
+  <ul>
+    @for (unit of units(); track $index) {
+    <app-unit-card [unit]="unit"></app-unit-card>
+    } @empty {
+    <li>Unidade não encontrada</li>
+    }
+  </ul>
 </div>
