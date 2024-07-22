@@ -14,5 +14,5 @@ import { UnitLocation } from '@models/unit';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UnitsListComponent {
-  units = input.required<UnitLocation[]>();
+  public units = input.required<UnitLocation[]>();
 }

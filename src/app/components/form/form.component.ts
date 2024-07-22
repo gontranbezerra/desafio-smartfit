@@ -28,7 +28,7 @@ export class FormComponent implements OnInit {
 
   protected units$: Observable<UnitLocation[]> = this.unitState.units$;
 
-  units = toSignal(this.units$, { initialValue: [] });
+  protected units = toSignal(this.units$, { initialValue: [] });
 
   ngOnInit(): void {
     this.onSubmit();
