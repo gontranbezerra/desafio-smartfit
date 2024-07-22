@@ -10,20 +10,27 @@ import { BehaviorSubject, map, Observable, take } from 'rxjs';
   providedIn: 'root',
 })
 export class UnitState {
+  private _loading$ = new BehaviorSubject<boolean>(true);
   private _units$ = new BehaviorSubject<UnitLocation[]>([]);
 
   constructor(private unitsService: UnitService) {}
 
+  loading$: Observable<boolean> = this._loading$.asObservable();
   units$: Observable<UnitLocation[]> = this._units$.asObservable();
 
   load(values: Partial<{ hour: HOUR_INDEX; showClosed: boolean }>): void {
+    this._loading$.next(true);
     this.unitsService
       .listAllUnitsLocal()
       .pipe(take(1))
       .pipe(this.filterUnits(values))
       .subscribe({
-        next: (units: UnitLocation[]) => this.updateUnits(units),
+        next: (units: UnitLocation[]) => {
+          this._loading$.next(false);
+          this.updateUnits(units);
+        },
         error: (error) => {
+          this._loading$.next(false);
           this.loadExternal(values);
           console.error(error);
         },
@@ -35,13 +42,20 @@ export class UnitState {
   }
 
   private loadExternal(values: Partial<{ hour: HOUR_INDEX; showClosed: boolean }>): void {
+    this._loading$.next(true);
     this.unitsService
       .listAllUnitsExternal()
       .pipe(take(1))
       .pipe(this.filterUnits(values))
       .subscribe({
-        next: (units: UnitLocation[]) => this.updateUnits(units),
-        error: (error) => console.error(error),
+        next: (units: UnitLocation[]) => {
+          this._loading$.next(false);
+          this.updateUnits(units);
+        },
+        error: (error) => {
+          this._loading$.next(false);
+          console.error(error);
+        },
       });
   }
 
@@ -58,9 +72,9 @@ export class UnitState {
       const unitFiltered = units.filter((unit: UnitLocation) => {
         if (!unit.schedules) return false;
 
-        for (let i = 0; i < unit.schedules.length; i++) {
-          const SCHEDULE_HOUR = unit.schedules[i].hour;
-          const SCHEDULE_WEEKDAY = unit.schedules[i].weekdays;
+        for (const element of unit.schedules) {
+          const SCHEDULE_HOUR = element.hour;
+          const SCHEDULE_WEEKDAY = element.weekdays;
 
           if (SCHEDULE_WEEKDAY === TODAYS_WEEKDAY && SCHEDULE_HOUR != 'Fechada') {
             const [UNIT_OPEN_HOUR, UNIT_CLOSE_HOUR] = SCHEDULE_HOUR.split(' às ');

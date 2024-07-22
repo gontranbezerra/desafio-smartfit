@@ -116,6 +116,17 @@
         border: 2px solid var(--lighter-gray);
       }
     }
+
+    &button:disabled,
+    button[disabled] {
+      cursor: not-allowed;
+
+      color: silver;
+
+      &.btn-primary {
+        background-color: var(--even-lighter-gray);
+      }
+    }
   }
 }
 

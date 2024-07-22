@@ -11,12 +11,7 @@
       <span>06:00 às 12:00</span>
     </div>
     <div class="form-line">
-      <input
-        type="radio"
-        name="hour"
-        formControlName="hour"
-        value="afternoon"
-      />
+      <input type="radio" name="hour" formControlName="hour" value="afternoon" />
       <label for="hour">Tarde</label>
       <span>12:01 às 18:00</span>
     </div>
@@ -27,12 +22,7 @@
     </div>
     <div class="form-summary">
       <div class="checkbox-wrapper">
-        <input
-          type="checkbox"
-          name="show-closed-unit"
-          id="show-closed-unit"
-          formControlName="showClosed"
-        />
+        <input type="checkbox" name="show-closed-unit" id="show-closed-unit" formControlName="showClosed" />
         <label for="show-closed-unit">Exibir unidades fechadas</label>
       </div>
       <div class="results">
@@ -42,9 +32,7 @@
     </div>
   </div>
   <div class="form-footer">
-    <button class="btn btn-primary" (click)="onSubmit()">
-      Encontrar unidade
-    </button>
-    <button class="btn btn-secondary" (click)="onClean()">Limpar</button>
+    <button class="btn btn-primary" (click)="onSubmit()" [disabled]="loading()">Encontrar unidade</button>
+    <button class="btn btn-secondary" (click)="onClean()" [disabled]="loading()">Limpar</button>
   </div>
 </form>

@@ -26,8 +26,10 @@ export class FormComponent implements OnInit {
     showClosed: [false, Validators.required],
   });
 
+  protected loading$: Observable<boolean> = this.unitState.loading$;
   protected units$: Observable<UnitLocation[]> = this.unitState.units$;
 
+  protected loading = toSignal(this.loading$, { initialValue: true });
   protected units = toSignal(this.units$, { initialValue: [] });
 
   ngOnInit(): void {
@@ -41,6 +43,6 @@ export class FormComponent implements OnInit {
   onClean = () => {
     this.formGroup.reset();
     this.unitState.clean();
-    this.onSubmit()
+    this.onSubmit();
   };
 }
