@@ -12,7 +12,7 @@ export interface UnitLocation {
   content?: string;
   opened?: boolean;
   mask?: Mask;
-  towel?: Mask;
+  towel?: Towel;
   fountain?: Fountain;
   locker_room?: LockerRoom;
   schedules?: Schedule[];
@@ -21,6 +21,16 @@ export interface UnitLocation {
   city_name?: string;
   state_name?: string;
   uf?: string;
+}
+
+export enum Mask {
+  Recommended = 'recommended',
+  Required = 'required',
+}
+
+export enum Towel {
+  Recommended = 'recommended',
+  Required = 'required',
 }
 
 export enum Fountain {
@@ -32,11 +42,6 @@ export enum LockerRoom {
   Allowed = 'allowed',
   Closed = 'closed',
   Partial = 'partial',
-}
-
-export enum Mask {
-  Recommended = 'recommended',
-  Required = 'required',
 }
 
 export interface Schedule {
