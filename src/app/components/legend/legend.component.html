@@ -1,0 +1,23 @@
+<div class="legend-container">
+  @for (legend of legends | keyvalue; track $index) {
+  <div class="legend-card">
+    <div class="legend-title">
+      <span>
+        {{ legend.value.title }}
+      </span>
+    </div>
+    <div class="legend-content">
+      @for (item of legend.value.labels; track $index) {
+      <div class="legend-item">
+        <div class="legend-icon">
+          <img [src]="'images/png/' + item.value + '-' + legend.value.group + '.png'" [alt]="legend.value.title" />
+        </div>
+        <div class="legend-label">
+          {{ item.label }}
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+  }
+</div>

@@ -2,6 +2,6 @@
 <app-form></app-form>
 
 @let units = units$ | async; @if (units && units.length) {
+<app-legend></app-legend>
 <app-units-list [units]="units"></app-units-list>
-
 }

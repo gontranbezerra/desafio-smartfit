@@ -1,0 +1,77 @@
+:host {
+  display: block;
+}
+
+.legend-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  gap: 1em;
+
+  width: 90%;
+  min-width: min-content;
+  margin: 0 auto;
+
+  padding: 1.5rem 1em;
+
+  background-color: var(--lighter-gray);
+
+  .legend-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1em;
+
+    .legend-title {
+      span {
+        font-weight: 700;
+        font-size: 1em;
+        color: var(--dark-gray);
+      }
+    }
+
+    .legend-content {
+      display: flex;
+      flex-direction: row;
+
+      gap: 0.5em;
+
+      .legend-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 1em;
+
+        .legend-icon {
+          img {
+            height: 3.5em;
+          }
+        }
+      }
+    }
+
+    // .legend {
+    //   display: flex;
+    //   flex-direction: column;
+    //   align-items: center;
+    //   justify-content: center;
+    //   gap: 0.5em;
+
+    //   svg {
+    //     height: 1em;
+    //   }
+
+    //   span {
+    //     font-size: 1em;
+    //     color: var(--light-gray-text);
+    //   }
+    // }
+  }
+}

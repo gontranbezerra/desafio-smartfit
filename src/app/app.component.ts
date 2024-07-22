@@ -4,6 +4,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 
 import { FormComponent } from '@components/form/form.component';
 import { HeaderComponent } from '@components/header/header.component';
+import { LegendComponent } from '@components/legend/legend.component';
 import { UnitsListComponent } from '@components/units-list/units-list.component';
 
 import { UnitLocation } from '@models/unit';
@@ -16,7 +17,7 @@ import { Observable } from 'rxjs';
   selector: 'app-root',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, RouterModule, RouterOutlet, HeaderComponent, FormComponent, UnitsListComponent],
+  imports: [CommonModule, RouterModule, RouterOutlet, HeaderComponent, FormComponent, LegendComponent, UnitsListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
