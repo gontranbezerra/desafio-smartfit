@@ -1,27 +1,81 @@
-# DesafioSmartfit
+[ANGULAR__BADGE]: https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white
+[TYPESCRIPT__BADGE]: https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white
+[JAVASCRIPT__BADGE]: https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.0.
+<h1 align="center" style="font-weight: bold;">Desafio Smart Fit</h1>
 
-## Development server
+![Angular][ANGULAR__BADGE]
+![TypeScript][TYPESCRIPT__BADGE]
+![JavaScript][JAVASCRIPT__BADGE]
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Esse pequeno projeto contém a solução para o desafio de [Front-end da Smart Fit](https://github.com/bioritmo/front-end-code-challenge-smartsite), utilizando o framework Angular (v18.1) para desenvolver a aplicação.
 
-## Code scaffolding
+### Layout
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<p align="center">
+    <img src="./public/images/png/smartfit_top.png" alt="Top" width="400px">
+    <img src="./public/images/png/smartfit_bottom.png" alt="Bottom" width="400px">
+</p>
 
-## Build
+### Sobre o desafio
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+A Smart Fit, por atuar no segmento de fitness, passou por várias mudanças na pandemia. Foi necessário desenvolver uma página para buscar unidades fechadas ou abertas para consulta e reserva.
 
-## Running unit tests
+Neste desafio foi implementado as seguintes funcionalidades:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Funcionalidades
+- Carrega dados das unidades através de um arquivo JSON;
+- Busca todas as unidades;
+- Busca unidades com filtros;
+- Mostra previsão de resultados encontrados;
+- Mostra unidades ao buscar.
 
-## Running end-to-end tests
+### Regras de negócio
+- Filtrar unidades abertas ou fechadas
+- Filtrar unidades por período de funcionamento
+- Caso não encontre unidades, mostrar uma menssagem ao usuário "Nenhuma unidade encontrada"
+- Validar para mostrar ícones corretos de acordo com o status
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+### Instalação
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Esse projeto usa [node](http://nodejs.org), [npm](https://npmjs.com) e [git](https://git-scm.com/), verifique antes se já estão instalados em seu ambiente.
+
+#### Usando API local
+Para usar a API localmente será necessário o [json-server](https://github.com/typicode/json-server):
+```bash
+npm install -g json-server
+```
+Se usa Linux:
+```bash
+export NODE_PATH="/usr/lib/node_modules"
+```
+Se usa Mac com Homebrew:
+```bash
+export NODE_PATH="/opt/homebrew/lib/node_modules"
+```
+
+### Clonando o repositório
+```bash
+git clone https://github.com/gontranbezerra/desafio-smartfit.git
+cd desafio-smartfit
+```
+
+### Instalando as dependências
+```bash
+npm install
+```
+
+### Iniciando API local (opcional)
+```bash
+npm run dev:mock:api
+```
+
+### Iniciando a aplicação
+```bash
+npm run start
+```
+
+### Licença
+
+[MIT](LICENSE) © Gontran Bezerra
