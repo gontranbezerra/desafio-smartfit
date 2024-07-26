@@ -7,6 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:ci": "ng test --no-watch --no-progress --browsers=ChromeHeadless",
+    "test:coverage": "ng test --no-watch --code-coverage --browsers=ChromeHeadless",
     "dev:mock:api": "node src/app/data/server.js"
   },
   "private": true,
