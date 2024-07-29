@@ -92,7 +92,7 @@ export class UnitState {
         return false;
       });
 
-      console.log(unitFiltered.map(({ title, schedules }) => ({ title, schedules })));
+      // console.log(unitFiltered.map(({ title, schedules }) => ({ title, schedules })));
 
       if (values.showClosed) {
         return unitFiltered;

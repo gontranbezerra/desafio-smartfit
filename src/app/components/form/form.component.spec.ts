@@ -1,4 +1,4 @@
-import { HttpClient, HttpHandler } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Fountain, LockerRoom, Mask, Towel, UnitLocation, Weekdays } from '@models/unit';
@@ -30,7 +30,7 @@ describe('FormComponent', () => {
 
     await TestBed.configureTestingModule({
       imports: [FormComponent],
-      providers: [HttpClient, HttpHandler, { provider: UnitState, useValue: unitStateSpy }],
+      providers: [provideHttpClient(), { provider: UnitState, useValue: unitStateSpy }],
     }).compileComponents();
 
     expectedUnits = [
