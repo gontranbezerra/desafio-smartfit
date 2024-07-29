@@ -17,8 +17,9 @@ Esse pequeno projeto contém a solução para o desafio de [Front-end da Smart F
 ### Layout
 
 <p align="center">
-    <img src="./public/images/png/smartfit_top.png" alt="Top" width="400px">
-    <img src="./public/images/png/smartfit_bottom.png" alt="Bottom" width="400px">
+    <img src="./.github/smartfit_top.png" alt="Top" width="400px">
+    <span style="margin-right: 16px;"></span>
+    <img src="./.github/smartfit_bottom.png" alt="Bottom" width="400px">
 </p>
 
 ### Sobre o desafio
@@ -82,6 +83,16 @@ npm run start
 
 ### Usando a aplicação
 No seu navegador vá para `http://localhost:4200/`.
+
+
+### Testes
+
+Cobertura dos testes:
+<p align="left">
+    <img src="./.github/coverage-summary.png" alt="Top" width="600px">
+</p>
+
+
 
 ### Licença
 
