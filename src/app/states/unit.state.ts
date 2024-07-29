@@ -109,7 +109,7 @@ export class UnitState {
       case 6:
         return Weekdays.Sáb;
       default:
-        return Weekdays.SegÀSex || Weekdays.SegÀsSex;
+        return Weekdays.SegÀSex;
     }
   }
 }

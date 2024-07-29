@@ -26,7 +26,7 @@ describe('UnitCardComponent', () => {
       locker_room: LockerRoom.Allowed,
       schedules: [
         {
-          weekdays: Weekdays.SegÀsSex,
+          weekdays: Weekdays.SegÀSex,
           hour: '06h às 23h',
         },
         {

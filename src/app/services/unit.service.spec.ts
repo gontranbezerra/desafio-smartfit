@@ -16,7 +16,7 @@ describe('UnitService', () => {
   let service: UnitService;
   let unitService: UnitService;
 
-  let expectedUnitsLocations: UnitLocation[];
+  let expectedUnitLocations: UnitLocation[];
   let expectedUnitsResponse: UnitResponse;
 
   beforeEach(() => {
@@ -24,7 +24,7 @@ describe('UnitService', () => {
       providers: [provideHttpClient(), provideHttpClientTesting()],
     });
 
-    expectedUnitsLocations = [
+    expectedUnitLocations = [
       {
         id: 10998878976092,
         title: 'GV Shopping',
@@ -36,7 +36,7 @@ describe('UnitService', () => {
         locker_room: LockerRoom.Allowed,
         schedules: [
           {
-            weekdays: Weekdays.SegÀsSex,
+            weekdays: Weekdays.SegÀSex,
             hour: '06h às 23h',
           },
           {
@@ -55,7 +55,7 @@ describe('UnitService', () => {
       wp_total: 116,
       total: 167,
       success: true,
-      locations: expectedUnitsLocations,
+      locations: expectedUnitLocations,
     };
 
     httpTesting = TestBed.inject(HttpTestingController);
@@ -71,10 +71,10 @@ describe('UnitService', () => {
 
   describe('#listAllUnitsLocal', () => {
     it('should return all local units when allUnits is true', (done: DoneFn) => {
-      httpClientSpy.get.and.returnValue(of(expectedUnitsLocations));
+      httpClientSpy.get.and.returnValue(of(expectedUnitLocations));
       unitService.listAllUnitsLocal(true).subscribe({
         next: (units) => {
-          expect(units).toEqual(expectedUnitsLocations);
+          expect(units).toEqual(expectedUnitLocations);
           done();
         },
         error: done.fail,
@@ -84,20 +84,20 @@ describe('UnitService', () => {
 
     it('should make a request from local API that matches the given URL when allUnits is true', () => {
       service.listAllUnitsLocal(true).subscribe((units) => {
-        expect(units).toEqual(expectedUnitsLocations);
+        expect(units).toEqual(expectedUnitLocations);
       });
       let req = httpTesting.expectOne(`${environment.localAPI}/locations`);
       expect(req.request.method).toBe('GET');
-      req.flush(expectedUnitsLocations);
+      req.flush(expectedUnitLocations);
     });
 
     it('should make a request from local API that matches the given URL when allUnits is false', () => {
       service.listAllUnitsLocal(false).subscribe((units) => {
-        expect(units).toEqual(expectedUnitsLocations);
+        expect(units).toEqual(expectedUnitLocations);
       });
       let req = httpTesting.expectOne(`${environment.localAPI}/locations?opened=true`);
       expect(req.request.method).toBe('GET');
-      req.flush(expectedUnitsLocations);
+      req.flush(expectedUnitLocations);
     });
 
     it('should handle 404 error when listing local units', () => {
@@ -118,7 +118,7 @@ describe('UnitService', () => {
       httpClientSpy.get.and.returnValue(of(expectedUnitsResponse));
       unitService.listAllUnitsExternal(true).subscribe({
         next: (units) => {
-          expect(units).toEqual(expectedUnitsLocations);
+          expect(units).toEqual(expectedUnitLocations);
           done();
         },
         error: done.fail,
@@ -128,7 +128,7 @@ describe('UnitService', () => {
 
     it('should make a request from external API that matches the given URL when allUnits is true', () => {
       service.listAllUnitsExternal(true).subscribe((units) => {
-        expect(units).toEqual(expectedUnitsLocations);
+        expect(units).toEqual(expectedUnitLocations);
       });
       let req = httpTesting.expectOne(`${environment.externalAPI}/locations.json`);
       expect(req.request.method).toBe('GET');
@@ -137,7 +137,7 @@ describe('UnitService', () => {
 
     it('should make a request from external API that matches the given URL when allUnits is false', () => {
       service.listAllUnitsExternal(false).subscribe((units) => {
-        expect(units).toEqual(expectedUnitsLocations);
+        expect(units).toEqual(expectedUnitLocations);
       });
       let req = httpTesting.expectOne(`${environment.externalAPI}/locations.json`);
       expect(req.request.method).toBe('GET');

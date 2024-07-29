@@ -23,7 +23,7 @@ describe('FormComponent', () => {
   let unitState: UnitState;
   let unitStateMock: UnitStateMock;
 
-  let expectedUnits: UnitLocation[];
+  let expectedUnitLocations: UnitLocation[];
 
   beforeEach(async () => {
     unitStateSpy = jasmine.createSpyObj('UnitState', ['load', 'clean']);
@@ -33,7 +33,7 @@ describe('FormComponent', () => {
       providers: [provideHttpClient(), { provider: UnitState, useValue: unitStateSpy }],
     }).compileComponents();
 
-    expectedUnits = [
+    expectedUnitLocations = [
       {
         id: 10998878976092,
         title: 'GV Shopping',
@@ -45,7 +45,7 @@ describe('FormComponent', () => {
         locker_room: LockerRoom.Allowed,
         schedules: [
           {
-            weekdays: Weekdays.SegÀsSex,
+            weekdays: Weekdays.SegÀSex,
             hour: '06h às 23h',
           },
           {
@@ -61,7 +61,7 @@ describe('FormComponent', () => {
     ];
     
     unitStateMock = {
-      units$: of(expectedUnits),
+      units$: of(expectedUnitLocations),
       load: unitStateSpy.load,
       clean: unitStateSpy.clean,
     };

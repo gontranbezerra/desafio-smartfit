@@ -8,14 +8,14 @@ describe('UnitsListComponent', () => {
   let component: UnitsListComponent;
   let fixture: ComponentFixture<UnitsListComponent>;
 
-  let expectedUnits: UnitLocation[];
+  let expectedUnitLocations: UnitLocation[];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [UnitsListComponent],
     }).compileComponents();
 
-    expectedUnits = [
+    expectedUnitLocations = [
       {
         id: 10998878976092,
         title: 'GV Shopping',
@@ -27,7 +27,7 @@ describe('UnitsListComponent', () => {
         locker_room: LockerRoom.Allowed,
         schedules: [
           {
-            weekdays: Weekdays.SegÀsSex,
+            weekdays: Weekdays.SegÀSex,
             hour: '06h às 23h',
           },
           {
@@ -45,7 +45,7 @@ describe('UnitsListComponent', () => {
     fixture = TestBed.createComponent(UnitsListComponent);
     component = fixture.componentInstance;
 
-    fixture.componentRef.setInput('units', expectedUnits);
+    fixture.componentRef.setInput('units', expectedUnitLocations);
     fixture.detectChanges();
   });
 
