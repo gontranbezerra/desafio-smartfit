@@ -20,4 +20,13 @@ describe('LegendComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should legends initial values', () => {
+    expect(Object.keys(component['legends']).length).toEqual(4);
+    expect(Object.values(component['legends']).length).toEqual(4);
+    expect(component['legends'][0].group).toEqual('mask')
+    expect(component['legends'][1].group).toEqual('towel')
+    expect(component['legends'][2].group).toEqual('fountain')
+    expect(component['legends'][3].group).toEqual('lockerroom')
+  })
 });
