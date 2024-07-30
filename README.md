@@ -3,7 +3,7 @@
 [JAVASCRIPT__BADGE]: https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E
 [HTML5__BADGE]: https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white
 [CSS3__BADGE]: https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white
-
+[JASMINE__BADGE]: https://img.shields.io/badge/-Jasmine-%238A4182?style=for-the-badge&logo=Jasmine&logoColor=white
 <h1 align="center" style="font-weight: bold;">Desafio Smart Fit</h1>
 
 ![Angular][ANGULAR__BADGE]
@@ -11,6 +11,7 @@
 ![JavaScript][JAVASCRIPT__BADGE]
 ![HTML5][HTML5__BADGE]
 ![CSS3][CSS3__BADGE]
+![Jasmine][JASMINE__BADGE]
 
 Esse pequeno projeto contém a solução para o desafio de [Front-end da Smart Fit](https://github.com/bioritmo/front-end-code-challenge-smartsite), utilizando o framework Angular (v18.1) para desenvolver a aplicação.
 
